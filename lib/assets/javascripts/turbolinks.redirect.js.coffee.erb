@@ -1,0 +1,10 @@
+#= require jquery_ujs
+#= require turbolinks
+
+##
+# On form success, we check for a custom status code we use to denote a
+# "Turbolinks Redirect". If we find it, we will have the redirect location
+# in the Location header and manually direct turbolinks to visit that url.
+$( @ ).on 'ajax:success', ( event, data, status, xhr ) ->
+  if xhr.status is <%= Rack::Utils::SYMBOL_TO_STATUS_CODE[ :turbolinks ] %>
+    Turbolinks.visit( xhr.getResponseHeader( 'Location' ) )
