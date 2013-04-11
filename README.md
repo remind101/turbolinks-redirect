@@ -22,9 +22,10 @@ Or install it yourself as:
 This approach assumes that you are trying to get turbolinks to play nice
 with rails_ujs and want your ajax forms to be able to "redirect" on success.
 
-Simple include `turbolinks.redirect` in your javascripts:
+Simply require `turbolinks.redirect` in your javascripts:
 
 ``` javascript
+//= require turbolinks
 //= require turbolinks.redirect
 ```
 
